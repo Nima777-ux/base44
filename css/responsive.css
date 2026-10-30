@@ -1,0 +1,173 @@
+/* =========================================================
+   responsive.css — tablet and mobile refinements
+   ========================================================= */
+
+/* ---------- wide desktop: keep four cards in view ---------- */
+@media (min-width: 1500px) {
+  .card { flex-basis: calc((100% - 60px) / 4); }
+}
+
+/* ---------- laptops ---------- */
+@media (max-width: 1240px) {
+  .card { flex-basis: calc((100% - 40px) / 3); }
+}
+
+/* ---------- small laptops / landscape tablets ---------- */
+@media (max-width: 1024px) {
+  .about__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 56px);
+  }
+
+  .about__figure {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(460px, 100%);
+    margin-top: 8px;
+  }
+
+  .card { flex-basis: calc((100% - 20px) / 2); }
+
+  .contact__grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- rail collapses into the top bar ---------- */
+@media (max-width: 979px) {
+  :root {
+    --rail-w: 0px;
+    --header-h: 66px;
+  }
+
+  .rail { display: none; }
+
+  .topbar {
+    left: 0;
+    padding: 0 clamp(18px, 5vw, 34px);
+  }
+
+  .topbar__brand {
+    display: inline-flex;
+    margin-right: auto;
+  }
+
+  .topbar__phone { display: none; }
+
+  .topbar__burger { display: flex; }
+
+  .nav {
+    position: fixed;
+    inset: var(--header-h) 0 auto 0;
+    z-index: 55;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 6px clamp(18px, 5vw, 34px) 24px;
+    background: rgba(26, 26, 26, .98);
+    border-bottom: 1px solid var(--line);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity .4s var(--ease), transform .4s var(--ease), visibility .4s;
+  }
+
+  .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .nav__link {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .7rem;
+  }
+
+  .nav__link::after {
+    left: auto;
+    right: 2px;
+    bottom: 50%;
+    transform: translateY(50%) scale(0);
+  }
+
+  .nav__link:hover::after,
+  .nav__link.is-active::after {
+    transform: translateY(50%) scale(1);
+  }
+
+  .hero__dots { display: flex; }
+
+  .hero__inner { padding-bottom: 46px; }
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 760px) {
+  .hero { min-height: 520px; }
+
+  .hero__title {
+    font-size: clamp(1.45rem, 7.4vw, 2.1rem);
+    letter-spacing: .12em;
+  }
+
+  .hero__text { font-size: .82rem; }
+
+  .section__watermark {
+    font-size: clamp(60px, 22vw, 110px);
+    letter-spacing: .02em;
+  }
+
+  .section__title { letter-spacing: .3em; }
+
+  .about__grid { grid-template-columns: 1fr; }
+
+  .about__intro p { max-width: none; }
+
+  .card { flex-basis: 82%; }
+
+  .projects__bar { flex-wrap: wrap; gap: 14px; }
+
+  .logos { grid-template-columns: repeat(2, 1fr); }
+
+  .stats__inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .stats__label { max-width: none; }
+
+  .form__grid { grid-template-columns: 1fr; }
+
+  .field--wide { grid-column: span 1; }
+
+  .form__foot {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .form__foot .btn { justify-content: center; }
+
+  .form__note {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .footer { padding-left: var(--pad-x); }
+
+  .footer__inner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* ---------- very small phones ---------- */
+@media (max-width: 400px) {
+  .btn {
+    padding: 15px 26px;
+    letter-spacing: .22em;
+  }
+
+  .card { flex-basis: 88%; }
+}

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Wireframe study of sweeping architectural curves">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b2b2b"/>
+      <stop offset=".55" stop-color="#1d1d1d"/>
+      <stop offset="1" stop-color="#131313"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="38%" cy="30%" r="72%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <rect width="600" height="600" fill="url(#glow)"/>
+
+  <!-- sweeping structural curves -->
+  <g fill="none" stroke="#ffffff" stroke-width="1">
+    <circle cx="118" cy="646" r="150" stroke-opacity=".07"/>
+    <circle cx="118" cy="646" r="226" stroke-opacity=".09"/>
+    <circle cx="118" cy="646" r="302" stroke-opacity=".11"/>
+    <circle cx="118" cy="646" r="378" stroke-opacity=".13"/>
+    <circle cx="118" cy="646" r="454" stroke-opacity=".15"/>
+    <circle cx="118" cy="646" r="530" stroke-opacity=".12"/>
+    <circle cx="118" cy="646" r="606" stroke-opacity=".09"/>
+    <circle cx="118" cy="646" r="682" stroke-opacity=".06"/>
+  </g>
+
+  <!-- radial ribs -->
+  <g stroke="#ffffff" stroke-opacity=".14" stroke-width="1">
+    <path d="M118 646 L600 96"/>
+    <path d="M118 646 L600 -28"/>
+    <path d="M118 646 L520 -140"/>
+    <path d="M118 646 L560 236"/>
+    <path d="M118 646 L340 -160"/>
+    <path d="M118 646 L-160 120"/>
+    <path d="M118 646 L-120 320"/>
+  </g>
+
+  <!-- horizon and plan grid -->
+  <g stroke="#ffffff" stroke-opacity=".1" stroke-width="1">
+    <path d="M0 452 H600"/>
+    <path d="M0 468 H600"/>
+    <path d="M78 500 V600"/>
+    <path d="M188 500 V600"/>
+    <path d="M298 500 V600"/>
+    <path d="M408 500 V600"/>
+    <path d="M518 500 V600"/>
+    <path d="M0 524 H600"/>
+    <path d="M0 566 H600"/>
+  </g>
+
+  <!-- highlighted arc -->
+  <g fill="none" stroke="#ffffff" stroke-opacity=".4" stroke-width="1.2">
+    <path d="M2 372 A 396 396 0 0 1 292 96"/>
+  </g>
+
+  <!-- survey marks -->
+  <g stroke="#ffffff" stroke-opacity=".3" stroke-width="1">
+    <path d="M84 82 h28 M98 68 v28"/>
+    <path d="M470 470 h28 M484 456 v28"/>
+  </g>
+</svg>
