@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 
+  <link rel="preload" as="image" href="assets/video/hero-poster.jpg">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/cinematic-hero.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
@@ -24,7 +26,7 @@
     <a class="rail__logo" href="#hero">go<span class="dot">.</span>arch</a>
 
     <p class="rail__counter">
-      <span id="heroIndex">01</span><span class="rail__sep">/</span><span class="rail__total">03</span>
+      <span id="heroIndex">01</span><span class="rail__sep">/</span><span class="rail__total">04</span>
     </p>
 
     <div class="rail__social-wrap">
@@ -78,14 +80,20 @@
   </header>
 
   <main class="page">
-    <!-- ===================== hero ===================== -->
-    <section class="hero" id="hero" aria-label="Featured projects">
-      <div class="hero__slide is-active">
-        <div class="hero__media">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&amp;fit=crop&amp;w=1900&amp;q=75"
-               alt="Glass curtain wall of a concert hall reflecting the evening sky" fetchpriority="high">
+    <!-- ===================== cinematic scroll-driven hero ===================== -->
+    <section class="cine" id="hero" aria-label="Featured project">
+      <div class="cine__sticky">
+        <div class="cine__media">
+          <video class="cine__video" id="heroVideo"
+                 muted playsinline preload="auto" disablepictureinpicture
+                 poster="assets/video/hero-poster.jpg" tabindex="-1" aria-hidden="true">
+            <source src="assets/video/hero.mp4" type="video/mp4">
+          </video>
+          <span class="cine__grade" aria-hidden="true"></span>
+          <span class="cine__vignette" aria-hidden="true"></span>
         </div>
-        <div class="hero__inner">
+
+        <div class="cine__content" id="heroContent">
           <span class="hero__rule"></span>
           <h1 class="hero__title">Concert Hall in New York</h1>
           <p class="hero__text">A crystalline volume of glass and steel on the Hudson — a concert hall composed around silence, light and the geometry of sound.</p>
@@ -94,44 +102,15 @@
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg>
           </a>
         </div>
-      </div>
 
-      <div class="hero__slide">
-        <div class="hero__media">
-          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&amp;fit=crop&amp;w=1900&amp;q=75"
-               alt="Pale stone facade with repeating windows seen from below" loading="lazy">
-        </div>
-        <div class="hero__inner">
-          <span class="hero__rule"></span>
-          <h1 class="hero__title">Residential Care Project in Paris</h1>
-          <p class="hero__text">A quiet composition of stone, timber and daylight — a place of care shaped by calm circulation and framed views.</p>
-          <a class="btn btn--gold" href="#projects">
-            Look more
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg>
-          </a>
-        </div>
-      </div>
+        <span class="cine__track" aria-hidden="true"><span class="cine__bar" id="heroProgressBar"></span></span>
 
-      <div class="hero__slide">
-        <div class="hero__media">
-          <img src="https://images.unsplash.com/photo-1470075801209-17f9ec0cada6?auto=format&amp;fit=crop&amp;w=1900&amp;q=75"
-               alt="Angled glass tower rising against a dark sky" loading="lazy">
+        <div class="cine__dots" role="tablist" aria-label="Camera stages">
+          <button class="cine__dot is-active" type="button" data-stage="0" aria-label="Stage 1 — arrival"></button>
+          <button class="cine__dot" type="button" data-stage="1" aria-label="Stage 2 — ascent"></button>
+          <button class="cine__dot" type="button" data-stage="2" aria-label="Stage 3 — through the glass"></button>
+          <button class="cine__dot" type="button" data-stage="3" aria-label="Stage 4 — interior"></button>
         </div>
-        <div class="hero__inner">
-          <span class="hero__rule"></span>
-          <h1 class="hero__title">Modern Hotel in London</h1>
-          <p class="hero__text">A restrained interior language of warm stone, bronze and shadow — a slow, considered rhythm for a city hotel.</p>
-          <a class="btn btn--gold" href="#projects">
-            Look more
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="hero__dots" role="tablist" aria-label="Hero projects">
-        <button class="hero__dot is-active" type="button" aria-label="Show Concert Hall in New York" aria-current="true"></button>
-        <button class="hero__dot" type="button" aria-label="Show Residential Care Project in Paris" aria-current="false"></button>
-        <button class="hero__dot" type="button" aria-label="Show Modern Hotel in London" aria-current="false"></button>
       </div>
     </section>
 
@@ -359,5 +338,6 @@
 
   <script src="js/main.js" defer></script>
   <script src="js/carousel.js" defer></script>
+  <script src="js/hero-scroll.js" defer></script>
 </body>
 </html>

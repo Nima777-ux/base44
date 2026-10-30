@@ -67,38 +67,7 @@
     targets.forEach((target) => spy.observe(target));
   }
 
-  /* ---------- 4. hero pager ---------- */
-  const slides = Array.from(document.querySelectorAll('.hero__slide'));
-  const dots = Array.from(document.querySelectorAll('.hero__dot'));
-  const heroIndex = document.getElementById('heroIndex');
-  let currentSlide = 0;
-
-  const showSlide = (index) => {
-    if (!slides.length) return;
-    currentSlide = (index + slides.length) % slides.length;
-
-    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === currentSlide));
-
-    dots.forEach((dot, i) => {
-      const isCurrent = i === currentSlide;
-      dot.classList.toggle('is-active', isCurrent);
-      dot.setAttribute('aria-current', String(isCurrent));
-    });
-
-    if (heroIndex) {
-      heroIndex.textContent = String(currentSlide + 1).padStart(2, '0');
-    }
-  };
-
-  document.querySelectorAll('[data-hero]').forEach((button) => {
-    button.addEventListener('click', () => {
-      showSlide(currentSlide + (button.dataset.hero === 'next' ? 1 : -1));
-    });
-  });
-
-  dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
-
-  /* ---------- 5. contact form ---------- */
+  /* ---------- 4. contact form ---------- */
   const form = document.getElementById('contactForm');
 
   if (form) {
@@ -118,7 +87,7 @@
     });
   }
 
-  /* ---------- 6. image lightbox ---------- */
+  /* ---------- 5. image lightbox ---------- */
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightboxImage');
 
